@@ -1,0 +1,909 @@
+# Open Design and Technology  
+## Final Project README
+
+> **Project Weight:** 70%  
+> **Team Size:** 2 students  
+> **Project Duration:** 4 weeks  
+> **Class Time Available:** 6 hours per class  
+> **Total Time Available:** 48 effort-hours per team  
+> **Project Type:** Playful, interactive, technology-based experience
+
+---
+
+# Before you begin
+
+## Fork and rename this repository
+After forking this repository, rename it using the format:
+
+`ODT-2026-TeamName`
+
+### Example
+`ODT-2026-PixelWizards`
+
+Do not keep the default repository name.
+
+---
+
+# How to use this README
+
+This file is your team’s **working project document**.
+
+You must keep updating it throughout the 4-week build period.  
+By the final review, this README should clearly show:
+- your idea,
+- your planning,
+- your design decisions,
+- your technical process,
+- your build progress,
+- your testing,
+- your failures and changes,
+- your final outcome.
+
+## Rules
+- Fill every section.
+- Do not delete headings.
+- If something does not apply, write `Not applicable` and explain why.
+- Add images, screenshots, sketches, links, and videos wherever useful.
+- Update task status and weekly logs regularly.
+- Use this file as evidence of process, not only as a final report.
+
+---
+
+# 1. Team Identity
+
+## 1.1 Studio / Group Name
+`baller`
+
+## 1.2 Team Members
+
+| Name | Primary Role | Secondary Role | Strengths Brought to the Project |
+|---|---|---|---|
+| `Inaya Wadhavkar` | `Fabrication, Coding, Craft, Mechanics` | `Building` | `Problem solving, decision making, project direction, spatial planning, art (exterior)` |
+| `Nandika Garlapati` | `Craft, Building, ` | `Coding, Mechanics` | `Coding-debugging, Laser cutting, material work, physical fabrication, box interiors ` |
+
+## 1.3 Project Title
+Lazy Pinball`
+
+## 1.4 One-Line Pitch
+`A playful tabletop pinball machine built from scratch, driven by an ESP32 microcontroller and servo motors.`
+
+## 1.5 Expanded Project Idea
+In 1–2 paragraphs, explain:
+- what your project is,
+- what kind of playful experience it creates,
+- what makes it fun, curious, engaging, strange, satisfying, competitive, or delightful,
+- what technologies are involved.
+
+**Response:**  
+Our project is a miniature pinball machine built as a self-contained tabletop experience. The outer enclosure is laser cut MDF, the interior ramps and guides are cardboard, and the ball is a small plastic ball. Two micro servo motors drive the flipper arms, controlled by an ESP32 microcontroller running MicroPython. Players interact with two roller lever switches — one per flipper — powered through a breadboard power supply.
+What makes it fun is how immediate it feels. The lever switches are light to press, the servos snap fast, and the whole thing runs on pure physical reaction — no screen, no app, no instructions needed. The game is simple: keep the ball alive as long as you can. That simplicity is exactly what makes it competitive — every round is short, every drain stings a little, and the next attempt starts immediately.
+---
+
+# 2. Philosophy Fit
+
+## 2.1 Experience, Not Social Problem
+This module does **not** require your project to solve a large social problem.
+
+You are allowed to build:
+- toys,
+- games,
+- interactive objects,
+- playful machines,
+- kinetic artifacts,
+- humorous devices,
+- strange but delightful experiences,
+- things that are entertaining to use or watch.
+
+## 2.2 What kind of experience are you creating?
+Answer the following:
+- What is the experience?
+- What do you want the player or participant to feel?
+- Why would someone want to try it again?
+
+**Response:**  
+- A fast, reflex-based tabletop game where the player physically controls flippers to keep a ball in play.
+- Urgency and focus: the ball moves fast and demands immediate reaction. Competitiveness: players naturally want to beat their own score or a friend's.
+- Each round is short, so the natural response is 'one more go.' It's competitive by nature; anyone nearby will want a turn.
+
+## 2.3 Design Persona
+Complete the sentence below:
+
+> We are designing this project as if we are a small creative studio making a **[toy / game / playable object / interactive experience]** for **[children / teens / adults / classmates / exhibition visitors / mixed audience]**.
+
+**Response:**  
+`We are designing this project as if we are a small creative studio making a game for a mixed audience.`
+
+---
+
+# 3. Inspiration
+
+## 3.1 References
+List what inspired the project.
+
+| Source Type | Title / Link | What Inspired You |
+|---|---|---|
+| `Physical Toy` | `Arcade Pinbill machines` | `Core interaction model, gameplay` |
+| `Video` | `Youtube DIY Pinball builds` | `Showed us feasible small-scale construction approaches` |
+| `Game` | `Online Pinball games` | `Scoring and feedback clarity` |
+
+## 3.2 Original Twist
+What makes your project original?
+
+**Response:**  
+`In a typical Pinball game, the player racks up points by hitting certain goals. Our game is timer-based. Players try to keep playing for the longest time. The twist is that we've crafted the interiors in a way that it's easy to lose.`
+
+---
+
+# 4. Project Intent
+
+## 4.1 Core Interaction Loop
+Describe the main loop of interaction.
+
+Examples:
+- press → launch → score → reset
+- connect → control → observe → repeat
+- turn → trigger → react → repeat
+- move object → sensor detects → sound/light response → player reacts
+
+**Response:**  
+`launch ball → press left/right button → flipper fires → ball stays in play → score increases → ball drains → reset`
+
+## 4.2 Intended Player / Audience
+
+| Question | Response |
+|---|---|
+| Who is this for? | `Open to all audiences.` |
+| Age range | `12+` |
+| Solo or multiplayer | `Solo. Can be played with 2 people (teamwork).` |
+| Expected duration of one round | `~30 seconds- 2 minutes` |
+| What should the player feel? | `Excited, focused, reactive.` |
+| Is explanation required before use? | `Only if needed: "Try playing for as long as you can."` |
+
+## 4.3 Player Journey
+Describe exactly how a player will use the project.
+
+1. **Approach:** `Player sees the machine, a sign, and a whiteboard with the high score.`
+2. **Start:** `Pulls a handle back to launch the ball.`
+3. **First Action:** `Presses a flipper button as the ball rolls down.`
+4. **Main Interaction:** `Alternates between left and right flipper buttons to keep the ball bouncing.`
+5. **System Response:** `Flippers snap up via servo motor when button is pressed; ball deflects based on timing.`
+6. **Win / Lose / End Condition:** `Round ends when the ball drains past the flippers.`
+7. **Reset:** `Ball is returned to launcher manually.`
+
+## 4.4 Rules of Play
+If your project is a game, list the rules clearly.
+
+- `The goal is to keep the ball in play as long as possible`
+- `The player controls two flippers using two physical push buttons`
+- `Players take turns; highest time or score wins`
+- `A round ends when the ball passes the flippers and drains`
+
+---
+
+# 5. Definition of Success
+
+## 5.1 Definition of “Playable”
+Your project will be considered complete only if these conditions are met.
+
+- [ ] `Both flipper buttons physically activate their corresponding servo`
+- [ ] `A player can keep the ball in play for at least one volley`
+- [ ] `The structure holds together during normal play without shifting or breaking`
+- [ ] `The ball rolls naturally down the playfield under gravity`
+- [ ] `A stranger can understand how to play without being told`
+
+## 5.2 Minimum Viable Version
+What is the smallest version of this project that still delivers the core experience?
+
+**Response:**  
+`A sloped board with two working servo-powered flippers controlled by two buttons, where a ball can be dropped manually and kept in play.`
+
+## 5.3 Stretch Features
+What features are nice to have but not essential?
+
+- `Automatic ball launcher (spring-loaded)`
+- `Obstacle bumpers on the playfield`
+- `Led strip light`
+
+---
+
+# 6. System Overview
+
+## 6.1 Project Type
+Check all that apply.
+
+- [x] Electronics-based
+- [x] Mechanical
+- [x] Sensor-based
+- [ ] App-connected
+- [x] Motorized
+- [ ] Sound-based
+- [ ] Light-based
+- [ ] Screen/UI-based
+- [x] Fabricated structure
+- [x] Game logic based
+- [x] Installation / tabletop experience
+- [ ] Other: `[Write here]`
+
+## 6.2 High-Level System Description
+Explain how the system works in simple terms.
+
+Include:
+- input,
+- processing,
+- output,
+- physical structure,
+- app interaction if any.
+
+**Response:**  
+`The pinball machine takes input from two physical push buttons, one for each flipper. The ESP32 reads the button signals and instantly sends a PWM signal to the corresponding micro servo motor. Each servo is attached to a flipper arm on the playfield — when triggered, it snaps up and returns to rest, deflecting the ball. The physical structure is a hand-built inclined playfield with two flipper mechanisms at the bottom, powered by a breadboard power supply. There is no app interaction.`
+
+## 6.3 Input / Output Map
+
+| System Part | Type | What It Does |
+|---|---|---|
+| `push button x2` | Input | `Player presses to trigger the corresponding flipper` |
+| `ESP32` | Processing | `Reads button press and sends PWM signal to the correct servo` |
+| `Micro servo motor x2` | Output | `Snaps flipper arm up and back down when triggered` |
+| `Inclined playfield + flipper arms` | Physical Action | `Ball rolls down the slope, flippers defect it back up` |
+
+---
+
+# 7. Sketches and Visual Planning
+
+## 7.1 Concept Sketch
+Add an early sketch of the full idea.
+
+**Insert image below:**  
+`<img width="860" height="1280" alt="PHOTO-2026-04-21-18-17-44" src="https://github.com/user-attachments/assets/f831549e-b21c-46da-94b8-60d47069ca46" />
+<img width="811" height="1280" alt="PHOTO-2026-04-21-18-18-40" src="https://github.com/user-attachments/assets/68a8c511-68fd-48b6-b891-4f2eef997d66" />
+<img width="743" height="1280" alt="PHOTO-2026-04-21-18-21-52" src="https://github.com/user-attachments/assets/5bfc901b-56bb-43d4-88e4-e107dee92ce0" />
+<img width="720" height="1280" alt="PHOTO-2026-04-21-16-31-41" src="https://github.com/user-attachments/assets/87971d90-712a-4531-aafd-4eec66820e56" />
+
+`
+
+Example:
+```md
+```
+
+## 7.2 Labeled Build Sketch
+Add a sketch with labels showing:
+- structure,
+- electronics placement,
+- user touch points,
+- moving parts,
+- output elements.
+
+**Insert image below:**  
+`<img width="790" height="1280" alt="PHOTO-2026-04-21-18-17-17" src="https://github.com/user-attachments/assets/5529cd6d-c99d-48d2-9b79-f939e89434e8" />
+<img width="868" height="1280" alt="PHOTO-2026-04-21-18-18-10" src="https://github.com/user-attachments/assets/54ad7823-98ac-445a-9f16-79341599fd24" />
+<img width="950" height="1280" alt="PHOTO-2026-04-21-18-18-21" src="https://github.com/user-attachments/assets/d3bb671b-daaa-435d-8cc2-ee64db88597b" />
+
+
+`
+
+## 7.3 Approximate Dimensions
+
+| Dimension | Value |
+|---|---|
+| Length | `32cm` |
+| Width | `25cm` |
+| Height | `18cm` |
+| Estimated weight | `0.75kg` |
+
+---
+
+# 8. Mechanical Planning
+
+## 8.1 Mechanical Features
+Check all that apply.
+
+- [ ] Gears
+- [ ] Pulleys
+- [ ] Belt drives
+- [ ] Linkages
+- [x] Hinges
+- [ ] Shafts
+- [x] Springs
+- [ ] Bearings
+- [ ] Wheels
+- [ ] Sliders
+- [x] Levers
+- [ ] Not applicable
+
+## 8.2 Mechanical Description
+Describe the mechanism and what it is meant to do.
+
+**Response:**  
+`The only moving mechanical parts in this project are the two flipper arms, each attached directly to a micro servo motor. When a button is pressed, the servo rotates and the flipper arm swings upward, deflecting the ball. The arms are mounted at the bottom of the inclined playfield, one on each side. There are no gears, pulleys, or complex linkages — the servo does the work directly.`
+
+## 8.3 Motion Planning
+If something moves, explain:
+- what moves,
+- what causes the movement,
+- how far it moves,
+- how fast it moves,
+- what could go wrong.
+
+**Response:**  
+`The flipper arms move in an arc of approximately 50 degrees, driven by the servo motors in response to button presses. The movement is near-instantaneous — the servo snaps to the raised position in under 100 milliseconds and returns to rest immediately after. Potential issues include the flipper arm not being securely fixed to the servo horn, causing slipping under impact, or the servo lacking enough torque to deflect the ball effectively if the ball is too heavy or moving too fast.`
+
+## 8.4 Simulation / CAD / Animation Before Making
+If your project includes mechanical motion, document the digital planning before fabrication.
+
+| Tool Used | File / Link | What Was Tested |
+|---|---|---|
+| `[Fusion 360 / Tinkercad / other]` | `[Link or screenshot]` | `[What did you validate?]` |
+| `[Tool]` | `[Link or screenshot]` | `[What did you validate?]` |
+
+## 8.5 Changes After Digital Testing
+What changed after the CAD, animation, or simulation stage?
+
+**Response:**  
+`N/A`
+
+---
+
+# 9. Electronics Planning
+
+## 9.1 Electronics Used
+
+| Component | Quantity | Purpose |
+|---|---:|---|
+| `ESP32` | `1` | `Main controller` |
+| `Micro servo motor` | `2` | `Powers the flipper arms` |
+| `Roller lever switch` | `2` | `Player input — triggers the flippers` |
+| `Breadboard power supply` | `1` | `Provides 5V power to the servo motors` |
+| `Breadboard` | `1` | `connects all components` |
+
+## 9.2 Wiring Plan
+Describe the main electrical connections.
+
+**Response:**  
+`Each servo is powered from the breadboard power supply — red wire to 5V, brown/black wire to PS GND. The signal wire of servo 1 connects to ESP32 pin D13, and servo 2 to D27. Each roller lever switch has its COM terminal connected to ESP32 GND and its NO terminal connected to an ESP32 input pin — switch 1 to D4, switch 2 to D21. The ESP32 GND and breadboard power supply GND are bridged together with a single wire so all components share a common ground.`
+
+## 9.3 Circuit Diagram
+Insert a hand-drawn or software-made circuit diagram.
+
+**Insert image below:**  
+`<img width="4032" height="3024" alt="IMG_4769" src="https://github.com/user-attachments/assets/32367874-ab81-4625-b9a0-780056624d39" />
+
+`
+
+## 9.4 Power Plan
+
+| Question | Response |
+|---|---|
+| Power source | `Breadboard power supply` |
+| Voltage required | `5V for servos, 3.3v logic for esp32 & switches` |
+| Current concerns | `Servos draw high current — must be powered from PS, not ESP32 pins` |
+| Safety concerns | `GND must be shared between PS and ESP32 to avoid signal issues` |
+
+---
+
+# 10. Software Planning
+
+## 10.1 Software Tools
+
+| Tool / Platform | Purpose |
+|---|---|
+| `MicroPython` | `Programming language used on the ESP32` |
+| `Thonny IDE` | `Writing, uploading, and debugging code on the ESP32` |
+
+## 10.2 Software Logic
+Describe what the code must do.
+
+Include:
+- startup behavior,
+- input handling,
+- sensor reading,
+- decision logic,
+- output behavior,
+- communication logic,
+- reset behavior.
+
+**Response:**  
+`On startup, both servos are set to their resting position at 0 degrees and held there for 0.5 seconds to stabilize. The code then enters a continuous loop that reads the state of both buttons every 10 milliseconds. If button 1 transitions from unpressed to pressed, servo 1 snaps to 180 degrees and immediately returns to 0. The same logic applies independently to button 2 and servo 2. Holding a button down does not repeat the action — only the moment of press triggers the flipper. There is no app communication or reset behavior required; the loop runs indefinitely.`
+
+## 10.3 Code Flowchart
+Insert a flowchart showing your code logic.
+
+Suggested sequence:
+- start,
+- initialize,
+- wait for input,
+- read input,
+- decision,
+- trigger output,
+- repeat or reset,
+- error handling.
+
+**Insert image below:**  
+`<img width="4032" height="3024" alt="IMG_4811" src="https://github.com/user-attachments/assets/ff1eaced-f0ce-4a37-8d68-a93cb46493de" />
+
+`
+
+## 10.4 Pseudocode
+
+```text
+initialize servo1 on pin D13
+initialize servo2 on pin D27
+initialize button1 on pin D4 with pull-up
+initialize button2 on pin D21 with pull-up
+
+set servo1 to 0 degrees
+set servo2 to 0 degrees
+wait 0.5 seconds
+
+last state of button1 = not pressed
+last state of button2 = not pressed
+
+loop forever:
+    read current state of button1
+    read current state of button2
+
+    if button1 is now pressed and was not pressed before:
+        move servo1 to 180 degrees
+        wait 0.08 seconds
+        move servo1 back to 0 degrees
+
+    if button2 is now pressed and was not pressed before:
+        move servo2 to 180 degrees
+        wait 0.08 seconds
+        move servo2 back to 0 degrees
+
+    save current button states as last states
+    wait 0.01 seconds
+```
+
+---
+
+# 11. MIT App Inventor Plan
+
+## 11.1 Is an app part of this project?
+- [ ] Yes
+- [x] No
+
+If yes, complete this section.
+
+## 11.2 Why is the app needed?
+Explain what the app adds to the experience.
+
+Examples:
+- remote control,
+- score tracking,
+- mode selection,
+- personalization,
+- triggering effects,
+- displaying data.
+
+**Response:**  
+`n/a`
+
+## 11.3 App Features
+N/A
+
+| Feature | Purpose |
+|---|---|
+| `[Bluetooth connect button]` | `[Purpose]` |
+| `[Score display]` | `[Purpose]` |
+| `[Control button / slider / label]` | `[Purpose]` |
+
+## 11.4 UI Mockup
+Insert a sketch or screenshot of the app interface.
+
+**Insert image below:**  
+`[Upload image and link here]`
+
+## 11.5 App Screen Flow
+N/A
+
+1. `[Step 1]`
+2. `[Step 2]`
+3. `[Step 3]`
+4. `[Step 4]`
+
+---
+
+# 12. Bill of Materials
+
+## 12.1 Full BOM
+
+| Item | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec | Why This Choice? |
+|---|---:|---|---|---:|---|---|
+| `ESP32` | `1` | `Yes` | `No` | `0` | `ESP32 DevKit` | `Main microcontroller` |
+| `MG90 servo motor` | `1` | `No` | `Yes` | `₹350` | `MG90 metal gear micro servo` | `Higher torque for more reliable flipper deflection` |
+| `SG90 servo motor` | `2` | `No` | `Yes` | `₹300` | `SG90 plastic gear micro servo` | `Compact and fast for flipper motion` |
+| `Roller lever switch` | `2` | `Yes` | `No` | `0` | `SPDT micro switch` | `Low activation force, fast response` |
+| `Breadboard power supply` | `1` | `Yes` | `No` | `0` | `5V output` | `Powers servos safely without overloading ESP32` |
+| `Breadboard + jumper wires` | `1 set` | `Yes` | `No` | `0` | `Standard` | `Prototyping connections` |
+| `MDF sheet` | `1` | `Yes` | `No` | `0` | `3-5mm` | `Laser cut outer enclosure` |
+| `Cardboard` | `1` | `Yes` | `No` | `0` | `Standard` | `Interior ramps and guides` |
+| `Large plastic ball` | `1` | `No` | `Yes` | `₹10` | `Plastic` | `Game ball` |
+| `Small plastic beads` | `1 pack` | `No` | `Yes` | `₹74` | `Plastic` | `Interior obstacles` |
+| `Spray paint` | `1` | `No` | `Yes` | `₹200` | `—` | `Exterior finish` |
+| `Fevikwik gel` | `1` | `No` | `Yes` | `₹10` | `Adhesive` | `Securing flipper arms and interior parts` |
+| `Masking tape` | `1` | `No` | `Yes` | `₹30` | `—` | `Temporary fastening during build` |
+
+## 12.2 Material Justification
+Explain why you selected your main materials and components.
+
+Examples:
+- Why acrylic instead of cardboard?
+- Why MDF instead of 3D print?
+- Why servo instead of DC motor?
+- Why bearing instead of a plain shaft hole?
+
+**Response:**  
+`Servo motors were chosen over DC motors because they offer precise angle control, which is essential for a consistent and repeatable flipper motion. The roller lever switch was chosen over a tactile push button because it requires significantly less force to activate and responds faster — a tactile switch would have been too stiff for the quick, repeated presses that a pinball game demands, making the lever switch a much more natural choice for players. MDF was chosen for the outer structure and laser cut for precision — it produces clean edges and makes assembling a box-shaped enclosure far more manageable than hand-cutting. Cardboard was used for the interior elements where precision mattered less, keeping the build lightweight and easy to adjust during prototyping.`
+
+## 12.3 Items to Purchase Separately
+| Item | Why Needed | Purchase Link | Latest Safe Date to Procure | Status |
+|---|---|---|---|---|
+| `MG90 servo motor` | `Higher torque flipper motor` | `Online electronics store` | `Week 2` | `Received` |
+| `SG90 servo motor x2` | `Flipper motors` | `Online electronics store` | `Week 2` | `Received` |
+| `Large plastic ball` | `Game ball` | `Local store` | `Week 2` | `Received` |
+| `Small plastic beads` | `Interior obstacles` | `Local store` | `Week 2` | `Received` |
+| `Spray paint` | `Exterior finish` | `Local store` | `Week 3` | `Received` |
+| `Fevikwik gel` | `Adhesive for securing parts` | `Local store` | `Week 2` | `Received` |
+| `Masking tape` | `Temporary fastening during build` | `Local store` | `Week 2` | `Received` |
+
+## 12.4 Budget Summary
+| Budget Item | Estimated Cost |
+|---|---:|
+| Electronics (servos) | `₹650` |
+| Mechanical parts | `₹0` |
+| Fabrication materials | `₹230` |
+| Purchased extras (ball, beads) | `₹84` |
+| Delivery | `₹60` |
+| Contingency | `₹10` |
+| **Total** | `₹1,034` |
+
+## 12.5 Budget Reflection
+If your cost is too high, what can be simplified, removed, substituted, or shared?
+
+**Response:**  
+`Our budget is very low because almost all electronics are provided in the kit. If costs increase, the playfield material can be substituted with recycled cardboard at no cost, and any standard small ball can replace a purpose-bought marble.`
+
+---
+
+# 13. Planning the Work
+
+## 13.1 Team Working Agreement
+Write how your team will work together.
+
+Include:
+- how tasks are divided,
+- how decisions are made,
+- how progress will be checked,
+- what happens if a task is delayed,
+- how documentation will be maintained.
+
+**Response:**  
+`Tasks were divided based on the nature of the work — one member focused on concept development, electronics, coding, system logic, wiring, and overall decision-making, while the other handled physical fabrication including laser cutting, cardboard construction, internal component layout, measurements, and assembly. Decisions were made jointly during class time, with one member generally directing the technical approach and the other executing the physical build. Progress was checked regularly during class sessions. If a task was delayed, both members pitched in to keep things moving. Documentation was maintained throughout the build process.`
+
+## 13.2 Task Breakdown
+
+| Task ID | Task | Owner | Estimated Hours | Deadline | Dependency | Status |
+|---|---|---|---:|---|---|---|
+| T1 | `[Finalize concept]` | `Inaya` | `1` | `6/4/26` | `None` | `done` |
+| T2 | `[Complete BOM]` | `Nandika` | `1` | `8/4/26` | `T1` | `done` |
+| T3 | `[Test electronics]` | `Nandika` | `2` | `9/4/26` | `T1` | `done` |
+| T4 | `[Build structure]` | `Both` | `3` | `10-11/4/26` | `T1` | `done` |
+| T5 | `[Write control code]` | `Both` | `2` | `12/4/26` | `T3` | `done` |
+| T6 | `[Integrate system]` | `Both` | `3` | `14-15/4/26` | `T4, T5` | `done` |
+| T7 | `[Playtest]` | `Both` | `4` | `16/4/26` | `T6` | `done` |
+| T8 | `[Refine and document]` | `Inaya` | `2.5` | `17-20/4/26` | `T7` | `done` |
+
+## 13.3 Responsibility Split
+
+| Area | Main Owner | Support Owner |
+|---|---|---|
+| Concept and gameplay | `Inaya Wadhavkar` | `Nandika Garlapati` |
+| Electronics | `Inaya` | `Nandika` |
+| Coding | `Nandika` | `Inaya` |
+| App | `N/A` | `N/A` |
+| Mechanical build | `Inaya` | `Nandika` |
+| Testing | `Nandika` | `Inaya` |
+| Documentation | `Inaya` | `Nandika` |
+
+---
+
+# 14. Weekly Milestones
+
+## 14.1 Four-Week Plan
+
+### Week 1 — Plan and De-risk
+Expected outcomes:
+- [x] Idea finalized
+- [x] Core interaction decided
+- [x] Sketches made
+- [ ] BOM completed
+- [ ] Purchase needs identified
+- [ ] Key uncertainty identified
+- [x] Basic feasibility tested
+
+### Week 2 — Build Subsystems
+Expected outcomes:
+- [x] Electronics tests completed
+- [ ] CAD / structure planning completed
+- [ ] App UI started if needed
+- [x] Mechanical concept tested
+- [x] Main subsystems partially working
+
+### Week 3 — Integrate
+Expected outcomes:
+- [x] Physical body built
+- [x] Electronics integrated
+- [x] Code connected to hardware
+- [ ] App connected if required
+- [ ] First playable version exists
+
+### Week 4 — Refine and Finish
+Expected outcomes:
+- [x] Technical bugs reduced
+- [x] Playtesting completed
+- [x] Improvements made
+- [x] Documentation completed
+- [x] Final build ready
+
+## 14.2 Weekly Update Log
+
+| Week | Planned Goal | What Actually Happened | What Changed | Next Steps |
+|---|---|---|---|---|
+| Week 1 | `Finalize concept, test feasibility, complete planning` | `Idea finalized as a two-flipper pinball machine. Core interaction decided, sketches made, basic servo and button feasibility tested. BOM and purchase planning left for later.` | `Skipped formal BOM — components were mostly kit-provided so purchases were minimal` | `Begin electronics testing and physical build` |
+| Week 2 | `Build and test subsystems` | `Electronics tested successfully. Servo and button wiring worked after resolving a GND connection issue. Mechanical flipper concept tested. Main subsystems partially working.` | `Wiring approach revised — switch COM wires moved from PS GND to ESP32 GND directly` | `Integrate electronics into physical structure` |
+| Week 3 | `Integrate all subsystems` | `Physical body built and laser cut. Electronics integrated into structure. Code connected to hardware and flippers responding to buttons. Full playable version not yet complete by end of week.` | `Integration took longer than expected due to wiring and fit adjustments` | `Finish playable version, begin playtesting` |
+| Week 4 | `Refine and finish` | `Technical bugs reduced. Playtesting completed with classmates. Improvements made based on feedback. Documentation completed and final build ready.` | `Minor adjustments made to flipper angles and button positioning based on playtest feedback` | `Submit` |
+
+---
+
+# 15. Risks and Unknowns
+
+## 15.1 Risk Register
+
+| Risk | Type | Likelihood | Impact | Mitigation Plan | Owner |
+|---|---|---|---|---|---|
+| `Servo lacks torque to deflect ball reliably` | `Technical` | `Medium` | `High` | `Test with actual ball early; adjust flipper arm length for more leverage` | `Both` |
+| `Flipper arm detaches from servo horn under repeated impact` | `Mechanical` | `Medium` | `High` | `Secure with adhesive and stress test before final build` | `Both` |
+| `Button wiring comes loose during play` | `Technical` | `Low` | `Medium` | `Reinforce all connections and test before each session` | `Nandika` |
+| `Playfield slope angle makes ball too fast or too slow` | `Gameplay` | `Medium` | `Medium` | `Test multiple angles during build, adjust before fixing permanently` | `Inaya` |
+
+## 15.2 Biggest Unknown Right Now
+What is the single biggest uncertainty in your project at this stage?
+
+**Response:**  
+`Whether the servo motors will be fast and strong enough to deflect the ball consistently when it is rolling at full speed. This was the core mechanical risk throughout the build.`
+
+---
+
+# 16. Testing and Playtesting
+
+## 16.1 Technical Testing Plan
+
+| What Needs Testing | How You Will Test It | Success Condition |
+|---|---|---|
+| `Button input detection` | `Run diagnostic code, press each button, watch shell output` | `Shell shows value dropping from 1 to 0 on press` |
+| `Servo response to button press` | `Run full code and press each button` | `Correct servo snaps up and returns immediately` |
+| `Both servos working independently` | `Press buttons alternately` | `Each flipper responds only to its own button` |
+| `Physical flipper deflecting ball` | `Place ball on playfield and trigger flipper` | `Ball visibly changes direction on activation` |
+
+## 16.2 Playtesting Plan
+
+| Question | How You Will Check |
+|---|---|
+| Do players understand what to do? | `Hand to a classmate with no explanation and observe` |
+| Is the interaction satisfying? | `Ask if the flipper response feels fast and physical` |
+| Do players want another turn? | `Observe whether they ask to play again unprompted` |
+| Is the challenge balanced? | `Watch whether the ball drains too fast or too slow` |
+| Is the response clear and immediate? | `Check whether players feel the flipper reacted to their press` |
+
+## 16.3 Testing and Debugging Log
+
+| Date | Problem Found | Type | What You Tried | Result | Next Action |
+|---|---|---|---|---|---|
+| `week 1` | `Buttons not registering — both reading 1 constantly` | `Technical` | `Moved COM wires from PS GND to ESP32 GND directly` | `Worked` | `Proceed with servo code` |
+| `week 1` | `Servo moving erratically on startup` | `technical` | `Added 0.5s stabilization delay and edge-detection logic for button press` | `worked` | `integrate into full code` |
+| `week 2` | `Flipper arm slipping on servo horn under ball impact` | `mechanical` | `secured arm with adhesive` | `worked` | `Monitor during playtesting` |
+| `week 3` | `Ball rolling too fast past flippers` | `gameplay` | `Adjusted playfield slope angle` | `partially worked` | `fine-tune angle further` |
+
+## 16.4 Playtesting Notes
+
+| Tester | What They Did | What Confused Them | What They Enjoyed | What You Will Change |
+|---|---|---|---|---|
+| `friend` | `Played two rounds immediately without instruction` | `Initially unsure which button controlled which flipper` | `The speed and snap of the flippers` | `Added visual indicators for left/right` |
+| `classmate` | `Tried to hold buttons down expecting continuous flipper hold` | `Expected holding the button to keep flipper up` | `The physical feel of the lever switches` | `inform beforehand that holding the buttons down doesn't do anything.` |
+
+---
+
+# 17. Build Documentation
+
+## 17.1 Fabrication Process
+Describe how the project was physically made.
+
+Include:
+- cutting,
+- 3D printing,
+- assembly,
+- fastening,
+- wiring,
+- finishing,
+- revisions.
+
+**Response:**  
+`The outer enclosure was designed digitally and laser cut from MDF for clean, precise edges and a sturdy box structure. Interior components including the playfield ramp, flipper mounts, and ball guides were made from cardboard, which was easy to cut, reposition, and adjust during prototyping. The flipper arms were attached directly to the servo horns and secured with adhesive. Electronics were wired on a breadboard and mounted inside the enclosure. Wiring was routed along the interior walls and kept clear of the ball path. The structure went through several internal layout revisions before the final component positions were fixed`
+
+## 17.2 Build Photos
+Add photos throughout the project.
+
+Suggested images:
+- early sketch,
+- prototype,
+- electronics testing,
+- mechanism test,
+- app screenshot,
+- final build.
+
+<img width="1280" height="960" alt="image" src="https://github.com/user-attachments/assets/204e2837-8d3f-4d14-8d59-a9fcee0ea45f" />
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/62d62393-252e-4960-9109-e75dcadc3a96" />
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/2efad58d-ed3a-4954-a8f6-b1a84be8c0af" />
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/384dc2f6-2ce6-479c-9064-d8de49b504ef" />
+<img width="1280" height="960" alt="image" src="https://github.com/user-attachments/assets/ee1572ff-24aa-4e57-ab0f-8dbaa9431450" />
+<img width="1280" height="960" alt="image" src="https://github.com/user-attachments/assets/e680d4c0-80a9-4fb0-b010-da49d526c332" />
+<img width="1280" height="960" alt="image" src="https://github.com/user-attachments/assets/5a0b9d89-5a76-4654-a023-5b2605b39fd9" />
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/77bc7ac7-ae40-4e5a-91fe-eb775916f754" />
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/1a0c86f6-bd64-4f20-bc1c-5d2f14fc4319" />
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/18bcb54d-0252-45a0-9e82-dbf146350af9" />
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/460fa398-fa59-4094-bce9-cf34dc283487" />
+
+
+Example:
+```md
+
+
+
+```
+
+## 17.3 Version History
+
+| Version | Date | What Changed | Why |
+|---|---|---|---|
+| `v1` | `week 1` | `Single servo and button test on breadboard` | `Proof of concept: confirm servo responds to button` |
+| `v2` | `week 2` | `Two servos and two buttons integrated, wiring revised` | `Expanded to full flipper system after single test succeeded` |
+| `v3` | `week 3` | `Electronics mounted inside MDF enclosure, playfield slope added` | `Move from breadboard prototype to physical build` |
+| `v4` | `week 4` | `Flipper angles tuned, button positions adjusted after playtesting` | `Improve responsiveness and usability based on feedback` |
+
+---
+
+# 18. Final Outcome
+
+## 18.1 Final Description
+Describe the final version of your project.
+
+**Response:**  
+`Lazy Pinball is a hand-built tabletop pinball machine powered by an ESP32 microcontroller. Players use two physical roller lever switches to control two servo-driven flipper arms at the bottom of an inclined MDF playfield. The ball is launched from the top, rolls down the slope, and players attempt to keep it in play using the flippers. The outer structure is laser cut MDF and the interior is cardboard. The system runs on MicroPython with no app or screen. The entire experience is physical and immediate.`
+
+## 18.2 What Works Well
+- Flipper response is fast and satisfying — the snap of the servo feels close to a real pinball machine
+- The roller lever switches are comfortable and quick to press repeatedly
+- The laser cut MDF enclosure looks clean and holds together solidly
+
+## 18.3 What Still Needs Improvement
+- Ball speed and slope angle could be better calibrated for a more balanced difficulty
+- Flipper arm attachment to servo horn could be more secure under heavy repeated use
+- No scoring system — a future version could add an LED counter or buzzer feedback
+
+## 18.4 What Changed From the Original Plan
+How did the project change from the initial idea?
+
+**Response:**  
+`The core concept stayed consistent throughout — two flippers, two buttons, one ball. The main changes were in execution. The wiring approach had to be revised after button signal issues, and the internal layout was adjusted several times before the electronics fit cleanly inside the enclosure. Scoring was considered as a stretch feature but was cut to keep the build focused and finishable within the four weeks.`
+
+---
+
+# 19. Reflection
+
+## 19.1 Team Reflection
+What did your team do well?  
+What slowed you down?  
+How well did you manage time, tasks, and responsibilities?
+
+**Response:**  
+`The project was driven primarily by one team member on the technical side — concept development, electronics, coding, wiring logic, and system decisions — while the other focused on physical fabrication including laser cutting, cardboard construction, and internal layout. The division worked reasonably well in terms of getting things done, but integration took longer than expected because the two workstreams weren't always in sync. Time management was tight in week 3 when the physical and electronic builds had to come together at the same time.`
+
+## 19.2 Technical Reflection
+What did you learn about:
+- electronics,
+- coding,
+- mechanisms,
+- fabrication,
+- integration?
+
+**Response:**  
+`We learned that servo motors require a separate power supply and a shared ground — something that caused significant debugging time early on. Button wiring with PULL_UP logic was unintuitive at first but made sense once we understood how the signal works. On the code side, edge detection for button presses (only triggering on the transition from unpressed to pressed) was a key insight that made the interaction feel correct. Integration — getting physical components and electronics to work together inside a fixed enclosure — was harder than either part alone.`
+
+## 19.3 Design Reflection
+What did you learn about: 
+- designing for play,
+- delight,
+- clarity,
+- physical interaction,
+- player understanding,
+- iteration?
+
+**Response:**  
+`The biggest design lesson was that physical feedback matters enormously. The lever switch feels better to press than a tactile button would have, and that small choice changes how the whole experience feels. We also learned that simplicity works — the game is just press, flip, react, and that's enough to make people want another turn. Clarity came from the physical layout itself: two buttons, two flippers, one ball. No explanation needed. Iteration on the slope angle and flipper position taught us that small physical changes have a big effect on gameplay feel.`
+
+## 19.4 If You Had One More Week
+What would you improve next?
+
+**Response:**  
+`We would add a scoring system — either a buzzer that reacts when the ball passes a sensor, or an LED counter that tracks how long the ball stays in play. We would also refine the flipper arm shape and attachment to handle faster, heavier balls more reliably, and experiment with adding bumpers on the playfield surface to make the ball's path less predictable and more exciting`
+
+---
+
+# 20. Final Submission Checklist
+
+Before submission, confirm that:
+- [x] Team details are complete
+- [x] Project description is complete
+- [x] Inspiration sources are included
+- [x] Player journey is written
+- [ ] Sketches are added
+- [x] BOM is complete
+- [x] Purchase list is complete
+- [x] Budget summary is complete
+- [x] Mechanical planning is documented if applicable
+- [n/a] App planning is documented if applicable
+- [ ] Code flowchart is added
+- [x] Task breakdown is complete
+- [x] Weekly logs are updated
+- [x] Risk register is complete
+- [x] Testing log is updated
+- [ ] Playtesting notes are included
+- [ ] Build photos are included
+- [x] Final reflection is written
+
+---
+
+# 21. Suggested Repository Structure
+
+```text
+project-repo/
+├── README.md
+├── images/
+│   ├── concept-sketch.jpg
+│   ├── labeled-sketch.jpg
+│   ├── circuit-diagram.jpg
+│   ├── ui-mockup.jpg
+│   ├── prototype-1.jpg
+│   └── final-build.jpg
+├── code/
+│   ├── main.py
+│   ├── test_code.py
+│   └── notes.md
+├── cad/
+│   ├── models/
+│   └── screenshots/
+└── docs/
+    ├── references.md
+    └── extra-notes.md
+```
+
+---
+
+# 22. Instructor Review
+
+## 22.1 Proposal Approval
+- [ ] Approved to proceed
+- [ ] Approved with changes
+- [ ] Rework required before proceeding
+
+**Instructor comments:**  
+`[Instructor fills this section]`
+
+## 22.2 Midpoint Review
+`[Instructor fills this section]`
+
+## 22.3 Final Review Notes
+`[Instructor fills this section]`
+
